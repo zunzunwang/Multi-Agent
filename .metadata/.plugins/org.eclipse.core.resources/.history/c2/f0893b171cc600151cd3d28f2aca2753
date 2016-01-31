@@ -1,0 +1,22 @@
+// Agent radio293_type in project projet_jacamo_FAPP
+
+/* Initial beliefs and rules */
+parent([]).
+children(radio294).
+pseudoparent([]).
+pseudochildren([]).
+
+/* Initial goals */
+!start.
+
+/* Plans */
++!start : true <- .print("radio293 is started.").
+//+cost_function[source(A)] <- .print("I received a 'cost-function' from ",A).
+
+{ include("$jacamoJar/templates/common-cartago.asl") }
+{ include("$jacamoJar/templates/common-moise.asl") }
+
+// uncomment the include below to have a agent that always complies with its organization  
+{ include("$jacamoJar/templates/org-obedient.asl") }
+{ include("./inc/dpop.asl") }
+

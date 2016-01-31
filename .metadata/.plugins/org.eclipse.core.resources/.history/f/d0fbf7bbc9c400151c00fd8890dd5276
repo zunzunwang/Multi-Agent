@@ -1,0 +1,14 @@
+package test;
+
+public class Agent {
+	String label;
+	int index;
+	String[] parant;
+	String[] pseudoparant;
+	String[] enfant;
+	String[] pseudoenfant;	
+	public Agent(){		
+	}
+	
+
+}

@@ -1,0 +1,25 @@
+// Agent radio141_type in project projet_jacamo_FAPP
+
+/* Initial beliefs and rules */
+parent([]).
+children(radio142).
+pseudoparent([]).
+pseudochildren([radio251,radio252]).
+
+/* Initial goals */
+
+!start.
+
+
+
+/* Plans */
++cost_function[source(A)] <- .print("I received a 'cost-function' from ",A).
+//+!start : true <- .send(radio141,tell,hello).
++!start : true <- .print("hello world.").
+
+
+{ include("$jacamoJar/templates/common-cartago.asl") }
+{ include("$jacamoJar/templates/common-moise.asl") }
+
+// uncomment the include below to have a agent that always complies with its organization  
+{ include("$jacamoJar/templates/org-obedient.asl") }

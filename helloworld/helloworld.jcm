@@ -7,10 +7,41 @@
     (see below the documentation about what can be defined in this file)
 
 */
+/**
+ * référence:http://jacamo.sourceforge.net/tutorial/hello-world/
+ * projet 类型为jcm的是让我们来定义 1. agent 2. environnement 3. organisation 用于处理我们的 multi agent application。
+ * 分别有三个关键字agent workspace organisation来定义所有的组成。
+ */
+ 
 
 mas helloworld {
+	
 
-    agent sample_agent
+/**
+ * 这里的四个agents名字分别为  francois, maria, giacomo, and alice 
+ * 他们分享共同的hello.asl文件 现在还不存在。
+ * 在每个agent中都会有一个初始化的initial belief法语中的croiyance "message("xxxxxxx")"
+ * 对应于要说的信息hello
+ * 
+ */	
+agent francois : hello.asl {
+    beliefs: message("Bonjour")
+    join:  france
+    focus: france.gui 
+}
+agent maria    : hello.asl {
+    beliefs: message("Bom dia")
+    focus: brazil.gui          // we can avoid the explicit join (as in francois) since the focus in JCM files implies a join
+}
+agent giacomo  : hello.asl {
+    beliefs: message("Buon giorno")
+    focus: italy.gui
+}
+agent alice    : hello.asl {
+    beliefs: message("Good morning")
+    focus: usa.gui
+}
+
     
 /* 
    agent definition
@@ -58,6 +89,22 @@ mas helloworld {
           node: n2                                     // this workspace will run on node n2
        }
 */
+workspace france {
+    artifact gui: display.GUIConsole("France")
+}
+
+workspace italy {
+    artifact gui: display.GUIConsole("Italy") 
+}
+
+workspace brazil {
+    artifact gui: display.GUIConsole("Brazil") 
+}
+
+workspace usa {
+    artifact gui: display.GUIConsole("USA") 
+}
+
 
 /*
     organisation entity definition

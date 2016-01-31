@@ -1,0 +1,33 @@
+// CArtAgO artifact code for project projet_jacamo_FAPP
+
+package projet_jacamo_FAPP;
+//import jason.asSyntax.Atom;
+
+
+import cartago.*;
+
+public class FappArtifact extends Artifact {
+	void init(int initialValue) {
+		defineObsProperty("count", initialValue);
+	}
+	
+	@OPERATION
+	void inc() {
+		ObsProperty prop = getObsProperty("count");
+		prop.updateValue(prop.intValue()+1);
+		signal("tick");
+	}
+	@OPERATION
+	void hello() {
+		System.out.println("yes it is");
+	}
+	
+	@OPERATION
+	int hello2() {
+		System.out.println("return 10");
+		return 10;
+	}
+	
+	
+}
+

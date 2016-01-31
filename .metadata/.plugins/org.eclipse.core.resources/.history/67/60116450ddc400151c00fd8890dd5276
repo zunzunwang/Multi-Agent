@@ -1,0 +1,77 @@
+package test;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class TestSearch {
+
+    public static void main(String args[]) {
+    	
+    	Agent agent1=new Agent("1",0);
+    	Agent agent2=new Agent("2",1);
+    	Agent agent3=new Agent("3",2);
+    	Agent agent4=new Agent("4",3);
+    	Agent agent5=new Agent("5",4);
+    	Agent agent6=new Agent("6",5);
+    	ArrayList<Agent> AgentList= new ArrayList<Agent>();
+    	AgentList.add(agent1);
+    	AgentList.add(agent2);
+    	AgentList.add(agent3);
+    	AgentList.add(agent4);
+    	AgentList.add(agent5);
+    	AgentList.add(agent6);
+    	
+        int n=6,e=6;//分别代表结点个数和边的数目
+        String labels[]={"1","2","3","4","5","6"};//结点的标识
+        Main graph=new Main(n);
+        for(String label:labels) {
+            graph.insertVertex(label);//插入结点
+        }
+        //插入6条边
+        graph.insertEdge(0, 1, 1);
+        graph.insertEdge(0, 2, 1);
+        graph.insertEdge(0, 3, 1);
+        graph.insertEdge(1, 4, 1);
+        graph.insertEdge(2, 4, 1);
+        graph.insertEdge(3, 5, 1);
+   
+
+        System.out.println("深度优先搜索序列为：");
+        graph.depthFirstSearch();
+        List<String> resultList=new ArrayList<String>();
+        resultList=graph.get_resultList();
+        //i是索引 j是用来在整个agent表中找agent的。
+        for(int i=1; i<=resultList.size();i++){       	
+//        	System.out.println(i+"/");
+        	if(i==1){
+        		for(Agent j: AgentList){
+        			if(resultList.get(i)==j.get_label()){
+        				j.set_parent(null);
+        				j.set_pseudoparant(null);
+        			}
+        		}        		
+        	}
+        	else{
+        		for(Agent j: AgentList){
+        		//先通过名字找到agent j对应当前的agent
+    			if(resultList.get(i)==j.get_label()){
+    				//index_voisin
+					for(int i2=i-1;i2>0;i2--){
+						for(String index_voisin : j.get_voisinList()){
+							if(index_voisin.equals(resultList.get(i2))
+							
+						}
+					}
+    					
+    					   						
+    			}
+    			}
+        	}
+        }
+        
+        	
+        
+//        System.out.println("广度优先搜索序列为：");
+//        graph.broadFirstSearch();
+    }
+}
