@@ -12,30 +12,22 @@ mas projet_jacamo_FAPP {
 
     agent  radio141 : radio141_type.asl {
     beliefs: message("this is 141")
-//   join:  france
-//    focus: radio_env.fapp 
 }
 	agent  radio142 : radio142_type.asl {
-	    beliefs: message("this is 142")
-//    focus: radio_env.fapp 
- 
+	    beliefs: message("this is 142") 
 	}
 	agent  radio251 : radio251_type.asl {
 	    beliefs: message("this is 251")
-//    focus: radio_env.fapp 
 	}
 	agent  radio252 : radio252_type.asl {
 	    beliefs: message("this is 252")
-//    focus: radio_env.fapp 
 	}
 	agent  radio293 : radio293_type.asl {
 	    beliefs: message("this is 293")
- //   focus: radio_env.fapp 
 	}
 	
 	agent  radio294 : radio294_type.asl {
 	    beliefs: message("this is 294")
-//    focus: radio_env.fapp 
 	}
 	
 	 workspace radio_env {

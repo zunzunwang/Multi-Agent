@@ -8,7 +8,6 @@ pseudochildren(radio252).
 
 /* Initial goals */
 !start.
-//!my_cost_function.
 
 /* Plans */
 +!start : true <- .print("radio142 is started.").
